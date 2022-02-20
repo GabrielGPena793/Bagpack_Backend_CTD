@@ -12,13 +12,15 @@ import static org.junit.jupiter.api.Assertions.*;
 @RunWith(Parameterized.class)
 class PersonTest {
 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    private Person person = new Person("Gabriel", "Gomes", "gabriel@hotmail.com", sdf.parse("28/03/2003"));
+
+    PersonTest() throws ParseException {
+    }
 
 
     @Test
-    public void shouldRetornFullNameSeparatedWithSpaces() throws ParseException {
-
-        Person person = new Person("Gabriel", "Gomes", "gabriel@hotmail.com", sdf.parse("28/03/2003"));
+    public void shouldRetornFullNameSeparatedWithSpaces(){
 
         String fullName = person.fullName();
 
@@ -27,8 +29,7 @@ class PersonTest {
     }
 
     @Test
-    public void shouldRetornTrueWhenAgeOverEighteen() throws ParseException {
-        Person person = new Person("Gabriel", "Gomes", "gabriel@hotmail.com", sdf.parse("28/03/2003"));
+    public void shouldRetornTrueWhenAgeOverEighteen(){
 
         boolean overEighteen = person.overEighteen();
 
@@ -38,7 +39,8 @@ class PersonTest {
 
     @Test
     public void shouldRetornFalseWhenAgeLessThanEighteen() throws ParseException {
-        Person person = new Person("Gabriel", "Gomes", "gabriel@hotmail.com", sdf.parse("28/03/2004"));
+
+        person.setAge(sdf.parse("28/03/2004"));
 
         boolean overEighteen = person.overEighteen();
 
