@@ -20,11 +20,11 @@ class PersonTest {
 
 
     @Test
-    public void shouldRetornFullNameSeparatedWithSpaces(){
+    public void shouldRetornLatasNameAndNameSeparatedWithSpaces(){
 
         String fullName = person.fullName();
 
-        assertEquals(person.getName() + " " + person.getLastName(), fullName);
+        assertEquals(person.getLastName() + " " + person.getName(), fullName);
 
     }
 
