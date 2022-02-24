@@ -11,3 +11,7 @@ Os documentos da categoria "Reservado" serão lidos pelos deputados, os classifi
 
 Pensemos nos deputados, ministros e presidente como usuários do sistema. Queremos que no momento em que qualquer um dos três tipos de usuário tente ler um documento (tendo acesso ou não), o envie para outro tipo de usuário e assim sucessivamente até que todos os usuários recebam o documento. Os três tipos de usuário devem possuir um método de leitura do documento, e um atributo que indique o tipo de acesso que possui (1, 2 ou 3). Este método receberá um documento e dependendo do tipo de hierarquia que seja, avaliará se pode lê-lo. Se puder, o fará e também o enviará para outro da hierarquia. Caso não tenha acesso para lê-lo, também o enviará para outro tipo de hierarquia.
 Sugerimos, portanto, que você represente a solução em um diagrama UML e implemente-o em JAVA.
+
+### Diagrama UML
+
+![atividade (1)](https://user-images.githubusercontent.com/86542760/155256451-79d653fe-b9bc-4033-bef6-c2711112e8b8.png)
