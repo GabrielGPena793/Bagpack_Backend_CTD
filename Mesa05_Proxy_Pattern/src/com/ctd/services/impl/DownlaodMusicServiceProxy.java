@@ -13,7 +13,7 @@ public class DownlaodMusicServiceProxy implements DownloadMusic {
             downloadMusicService.download(typeUser);
         }
         else {
-            System.out.println("Este serviço é apenas para usuários Premium " + "User: " + typeUser);
+            System.out.println( "User: " + typeUser + ", Este serviço é apenas para usuários Premium.");
         }
     }
 }

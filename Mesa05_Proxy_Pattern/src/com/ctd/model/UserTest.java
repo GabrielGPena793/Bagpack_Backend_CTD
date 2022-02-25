@@ -9,8 +9,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserTest {
 
     @Test
-    public void downloadTest(){
+    public void downloadTestPremium(){
         User user = new User(1, "Premium");
+        DownloadMusic downloadMusic = new DownlaodMusicServiceProxy();
+
+        downloadMusic.download(user.getTypeUser());
+    }
+
+    @Test
+    public void downloadTestFree(){
+        User user = new User(1, "Free");
         DownloadMusic downloadMusic = new DownlaodMusicServiceProxy();
 
         downloadMusic.download(user.getTypeUser());
