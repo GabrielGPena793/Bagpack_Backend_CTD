@@ -16,3 +16,5 @@ Uma classe Serie que implementa a interface ISerie e devolve uma String que repr
 Uma classe SerieProxy com um atributo qtdViews que conta o número de vezes que uma série foi solicitada e pede a Serie um link com getSerie e verifica o número de vezes que uma série foi reproduzida e se o valor máximo for excedido, ela lança uma exceção do tipo SerieNaoHabilitadaException, criada para esse fim.
 
 No método principal (main), faça solicitações de séries com o nome. Mostrar o link da série caso esteja habilitado. Se não estiver, exiba: "Excede o número de reproduções permitidas".
+
+![Diagrama em branco](https://user-images.githubusercontent.com/86542760/155800451-576faea8-5724-48d7-bffb-efe306305291.png)
