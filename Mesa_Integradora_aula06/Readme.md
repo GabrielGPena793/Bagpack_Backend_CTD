@@ -17,4 +17,5 @@ Uma classe SerieProxy com um atributo qtdViews que conta o número de vezes que 
 
 No método principal (main), faça solicitações de séries com o nome. Mostrar o link da série caso esteja habilitado. Se não estiver, exiba: "Excede o número de reproduções permitidas".
 
+## Diagrama UML
 ![Diagrama em branco](https://user-images.githubusercontent.com/86542760/155800451-576faea8-5724-48d7-bffb-efe306305291.png)
