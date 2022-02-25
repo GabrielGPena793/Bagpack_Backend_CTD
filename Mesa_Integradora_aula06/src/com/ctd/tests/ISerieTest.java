@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ISerieTest {
 
-    //teste que verifica se tem retorno enquanto ainda tem limites de visualizações
+    //teste que verifica se retorna o link enquanto ainda tem limites de visualizações
     @Test
     public void shouldReturnSerieWhenLimitAvaliable(){
 
