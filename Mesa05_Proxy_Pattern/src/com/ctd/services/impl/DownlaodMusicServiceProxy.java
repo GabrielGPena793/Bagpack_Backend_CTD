@@ -4,12 +4,11 @@ import com.ctd.services.DownloadMusic;
 
 public class DownlaodMusicServiceProxy implements DownloadMusic {
 
-    private DownloadMusicService downloadMusicService;
+    private DownloadMusicService downloadMusicService = new DownloadMusicService();
 
     @Override
     public void download(String typeUser) {
         if(typeUser.equalsIgnoreCase("Premium")){
-            downloadMusicService = new DownloadMusicService();
             downloadMusicService.download(typeUser);
         }
         else {
