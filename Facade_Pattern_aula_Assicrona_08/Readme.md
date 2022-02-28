@@ -9,3 +9,5 @@ O serviço que nos traz as informações da conta possui um método denominado g
 E por último, temos o serviço Caixa, que se encarrega de retirar o dinheiro do banco. Esse serviço possui um método denominado sacarDinheiro, que receberá o valor a ser sacado do banco.
 
 Depois de verificar se o usuário tem o dinheiro que deseja sacar, devemos usar o serviço de caixa. Nós propomos que você faça um diagrama de classes e, em seguida, faça a implementação deste desafio na linguagem JAVA.
+
+![Diagrama em branco](https://user-images.githubusercontent.com/86542760/155906219-f10ef723-d54e-42d1-a73b-1f8b658e8237.png)
