@@ -42,9 +42,9 @@ Você precisa de um sistema que mostre 1.000.000 de árvores, metade vermelhas e
 
 Usando esta declaração, você pode ver a memória usada:
 
-Runtime runtime = Runtime.getRuntime();
+    Runtime runtime = Runtime.getRuntime();
 
-System.out.println("Memória utilizada: " + (runtime.totalMemory() - runtime.freeMemory()) / (1024 * 1024));
+    System.out.println("Memória utilizada: " + (runtime.totalMemory() - runtime.freeMemory()) / (1024 * 1024));
 
 
 As classes necessárias devem ser desenvolvidas para atingir o processo de preparação explicado.
