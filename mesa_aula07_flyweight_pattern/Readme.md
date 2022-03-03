@@ -33,6 +33,7 @@ Altura: 100.
 Largura: 200.
 
 Cor: azul.
+
 ---
 
 A floresta é um conjunto de árvores e permitirá o plantio de árvores. ArvoreFactory será o local onde os diferentes tipos de árvores serão armazenados. Isso permitirá, antes de criar o objeto, validar se já existe um idêntico ao que está sendo solicitado. Em caso afirmativo, retorna o objeto existente; se não existir, ele cria o novo objeto e o armazena em cache para ser reutilizado posteriormente.
