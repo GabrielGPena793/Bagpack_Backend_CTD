@@ -56,23 +56,13 @@ public class Application {
                     SELECT * FROM employee;
                     """);
 
-            // criando uma lista adicionar os employee do banco.
-            List<Employee> employeesBD = new ArrayList<>();
-
             //fazendo a consulta
             rs = st.executeQuery();
 
-            //cria um employee e coloca na lista, para cada employee que tiver no banco;
+            //printa os dados que estou pedindo de cada employee no banco de dados;
             while (rs.next()){
-
-                employeesBD.add(new Employee(rs.getInt("id"), rs.getString("userName"),
-                        rs.getInt("age"), rs.getString("company"), rs.getDate("contractDate")));
-
+                System.out.println(rs.getInt("id") +", " +  rs.getString("userName"));
             }
-
-            //printa todos os employee que estão na lista;
-            employeesBD.forEach(System.out::println);
-
 
         } catch (ParseException | SQLException e) {
             e.printStackTrace();
