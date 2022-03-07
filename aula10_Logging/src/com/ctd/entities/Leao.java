@@ -40,7 +40,7 @@ public class Leao {
         logger.info("O Leão " + name +  " está correndo");
     }
 
-    public void eMaiorQue10(){
+    public void eMaiorQue10() throws Exception {
 //
 //        if (age <= 10 && age >= 0){
 //            logger.error("A idade do leão é menor ou igual a 10 anos");
@@ -48,7 +48,7 @@ public class Leao {
 
         if (age < 0){
             logger.error("A idade não pode ser negativa");
-            throw new IllegalStateException();
+            throw new Exception();
         }
 
         if (!eAlfa){
