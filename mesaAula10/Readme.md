@@ -1,4 +1,4 @@
-##Exercício para as mesas de trabalho
+## Exercício para as mesas de trabalho
 Durante esta aula, vamos revisar o que vimos anteriormente no exercício a seguir.
 Considere:
 
