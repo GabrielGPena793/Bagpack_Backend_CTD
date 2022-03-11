@@ -26,7 +26,7 @@ public class AirPlaneDAOInMemory implements IDAO<AirPlane> {
     }
 
     @Override
-    public AirPlane fingById(Integer id) {
+    public AirPlane findById(Integer id) {
         return  airPlanes.stream().filter( airPlane -> airPlane.getId() == id).findFirst().orElse(null);
     }
 

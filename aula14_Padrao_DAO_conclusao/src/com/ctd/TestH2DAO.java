@@ -3,6 +3,7 @@ package com.ctd;
 import com.ctd.dao.IDAO;
 import com.ctd.dao.impl.AirPlaneDAOH2;
 import com.ctd.model.AirPlane;
+import com.ctd.services.AirPlaneService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,7 +13,7 @@ public class TestH2DAO {
     public static void main(String[] args) throws ParseException {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        IDAO<AirPlane> airPlaneService = new AirPlaneDAOH2();
+        AirPlaneService airPlaneService = new AirPlaneService(new AirPlaneDAOH2());
 
         AirPlane airPlane = new AirPlane(1,"voador", "jato", 2548796, sdf.parse("28/03/1996"));
         AirPlane airPlane2 = new AirPlane(2,"Aeronave", "jatot", 1023548, sdf.parse("28/03/1880"));
@@ -25,7 +26,7 @@ public class TestH2DAO {
         airPlaneService.insert(airPlane4);
 
         System.out.println(" ==== buscar por id ====");
-        System.out.println(airPlaneService.fingById(4));
+        System.out.println(airPlaneService.findById(4));
 
         System.out.println(" ==== deletar por id ====");
         System.out.println("deletando o número " + 1);

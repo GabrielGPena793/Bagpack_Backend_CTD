@@ -18,21 +18,6 @@ public class AirPlaneDAOH2 implements IDAO<AirPlane> {
 
     public AirPlaneDAOH2() {
         this.conn = DB.getConnection();
-
-        try {
-            conn.prepareStatement("""
-                    CREATE TABLE airPlane (
-                    id INT PRIMARY KEY,
-                    brand VARCHAR(60),
-                    model VARCHAR(60),
-                    registration INT,
-                    dateEntryIntoservice DATE
-                    );
-                                        
-                    """).execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -92,7 +77,7 @@ public class AirPlaneDAOH2 implements IDAO<AirPlane> {
     }
 
     @Override
-    public AirPlane fingById(Integer id) {
+    public AirPlane findById(Integer id) {
         PreparedStatement st = null;
         ResultSet rs = null;
 

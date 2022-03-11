@@ -27,7 +27,7 @@ public class TestMemoryDAO {
 
 
         System.out.println(" ==== buscar por id ====");
-        System.out.println(airPlaneIDAOMemory.fingById(2));
+        System.out.println(airPlaneIDAOMemory.findById(2));
 
         System.out.println(" ==== deletar por id ====");
         airPlaneIDAOMemory.deleteById(4);
