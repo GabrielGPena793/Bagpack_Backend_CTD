@@ -1,15 +1,18 @@
 package com.ctd.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
 public class AirPlane {
 
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
     private int id;
     private String brand;
     private String model;
     private int registration;
-    private Date DateEntryIntoservice;
+    private Date dateEntryIntoservice;
 
     public AirPlane() {
     }
@@ -19,7 +22,7 @@ public class AirPlane {
         this.brand = brand;
         this.model = model;
         this.registration = registration;
-        DateEntryIntoservice = dateEntryIntoservice;
+        this.dateEntryIntoservice = dateEntryIntoservice;
     }
 
     public int getId() {
@@ -55,11 +58,11 @@ public class AirPlane {
     }
 
     public Date getDateEntryIntoservice() {
-        return DateEntryIntoservice;
+        return dateEntryIntoservice;
     }
 
     public void setDateEntryIntoservice(Date dateEntryIntoservice) {
-        DateEntryIntoservice = dateEntryIntoservice;
+        this.dateEntryIntoservice = dateEntryIntoservice;
     }
 
     @Override
@@ -69,7 +72,7 @@ public class AirPlane {
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", registration=" + registration +
-                ", DateEntryIntoservice=" + DateEntryIntoservice +
+                ", DateEntryIntoservice=" + sdf.format(dateEntryIntoservice) +
                 '}';
     }
 

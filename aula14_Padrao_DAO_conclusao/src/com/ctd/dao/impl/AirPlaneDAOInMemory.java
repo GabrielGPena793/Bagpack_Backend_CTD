@@ -19,16 +19,6 @@ public class AirPlaneDAOInMemory implements IDAO<AirPlane> {
     }
 
     @Override
-    public void update(AirPlane obj) {
-
-        if (fingById(obj.getId()).equals(obj)){
-            deleteById(obj.getId());
-        }
-
-        insert(obj);
-    }
-
-    @Override
     public void deleteById(Integer id) {
 
         airPlanes.removeIf(airPlane -> airPlane.getId() == id);
