@@ -22,7 +22,7 @@ public class EndercoDaoH2 implements IDAO<Endereco> {
 
         try {
             st = conn.prepareStatement("""
-                    INSERT INTO enderecos (rua, numero, cidade, bairro)
+                    INSERT INTO enderecos (ra, numero, cidade, bairro)
                     VALUES (?, ? ,?, ?);
                     """, Statement.RETURN_GENERATED_KEYS);
 
@@ -36,7 +36,7 @@ public class EndercoDaoH2 implements IDAO<Endereco> {
             rs = st.getGeneratedKeys();
 
             if (rs.next()){
-                    endereco.setId(rs.getInt(1));
+                endereco.setId(rs.getInt(1));
             }
 
 

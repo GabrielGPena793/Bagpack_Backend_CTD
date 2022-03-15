@@ -12,6 +12,7 @@ public class EnderecoService {
     }
 
     public Endereco salvar(Endereco endereco){
-        return enderecoIDAO.salvar(endereco);
+        enderecoIDAO.salvar(endereco);
+        return endereco;
     }
 }

@@ -85,7 +85,7 @@ public class Endereco {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Endereco endereco = (Endereco) o;
-        return Objects.equals(id, endereco.id);
+        return id.equals(endereco.id);
     }
 
     @Override

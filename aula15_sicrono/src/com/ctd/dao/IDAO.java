@@ -2,7 +2,7 @@ package com.ctd.dao;
 
 public interface IDAO<T> {
 
-    T salvar(T t);
+    public T salvar(T t);
 
 
 }
