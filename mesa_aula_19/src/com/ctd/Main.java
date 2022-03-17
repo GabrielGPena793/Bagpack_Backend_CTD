@@ -16,13 +16,13 @@ public class Main {
         List<Contato> contatos = Arrays.asList(c1, c2, c3);
 
         /*Salvar o objeto em um arquivo*/
-        FileOutputStream fo = new FileOutputStream("listaDePaginas.txt");
+        FileOutputStream fo = new FileOutputStream("listaDeContatos.txt");
         ObjectOutputStream oos = new ObjectOutputStream(fo);
         oos.writeObject(contatos);
 
 
         /*Recuperar o objeto de um arquivo*/
-        FileInputStream fi = new FileInputStream("listaDePaginas.txt");
+        FileInputStream fi = new FileInputStream("listaDeContatos.txt");
         ObjectInputStream ois = new ObjectInputStream(fi);
 
         System.out.println(ois.readObject());
