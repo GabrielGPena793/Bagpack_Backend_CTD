@@ -1,0 +1,4 @@
+jorge;borges;1245865;3500,00
+Lais;gonçales;8465135;4500,00
+Keu;Bar;7846651;1300,00
+Lara;Menezes;894134;2150,00

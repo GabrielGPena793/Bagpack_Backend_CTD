@@ -17,7 +17,6 @@ public class Desafio2 {
         empresa.addEmpregados(new Empregado("Keu", "Bar", "7846651", 1300.00));
         empresa.addEmpregados(new Empregado("Lara", "Menezes", "894134", 2150.00));
 
-
         String path = "out.txt";
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
             for (Empregado empregado : empresa.getEmpregados()) {

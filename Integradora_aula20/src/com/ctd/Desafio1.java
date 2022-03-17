@@ -28,11 +28,6 @@ public class Desafio1 {
 
         System.out.println(ois.readObject());
 
-
         ois.close();
-
-
-
-
     }
 }
