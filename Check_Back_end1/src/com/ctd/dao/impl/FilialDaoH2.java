@@ -70,6 +70,7 @@ public class FilialDaoH2 implements IDAO<Filial> {
 
             while (rs.next()){
                 Filial filial = new Filial();
+                filial.setId(rs.getInt("id"));
                 filial.setNomeFilial(rs.getString("nomeFilial"));
                 filial.setRua(rs.getString("rua"));
                 filial.setNumero(rs.getString("numero"));

@@ -29,16 +29,19 @@ class FilialServiceTest {
         filial4 = filialService.salvar(filial4);
         filial5 = filialService.salvar(filial5);
 
-        assertNotNull(filial.getId());
-        LOGGER.info("Retornando o primeiro objeto com o id salvo do banco: " + filial);
-        assertNotNull(filial2.getId());
-        LOGGER.info("Retornando o segundo objeto com o id salvo do banco: " + filial2);
-        assertNotNull(filial3.getId());
-        LOGGER.info("Retornando o terceiro objeto com o id salvo do banco: " + filial3);
-        assertNotNull(filial4.getId());
-        LOGGER.info("Retornando o quarto objeto com o id salvo do banco: " + filial4);
-        assertNotNull(filial5.getId());
-        LOGGER.info("Retornando o quinto objeto com o id salvo do banco: " + filial5);
+//        assertNotNull(filial.getId());
+//        LOGGER.info("Retornando o primeiro objeto com o id salvo do banco: " + filial);
+//        assertNotNull(filial2.getId());
+//        LOGGER.info("Retornando o segundo objeto com o id salvo do banco: " + filial2);
+//        assertNotNull(filial3.getId());
+//        LOGGER.info("Retornando o terceiro objeto com o id salvo do banco: " + filial3);
+//        assertNotNull(filial4.getId());
+//        LOGGER.info("Retornando o quarto objeto com o id salvo do banco: " + filial4);
+//        assertNotNull(filial5.getId());
+//        LOGGER.info("Retornando o quinto objeto com o id salvo do banco: " + filial5);
+//
+
+        filialService.findAll().forEach(System.out::println);
 
     }
 
