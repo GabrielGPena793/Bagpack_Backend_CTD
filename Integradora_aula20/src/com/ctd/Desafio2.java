@@ -19,10 +19,12 @@ public class Desafio2 {
 
         String path = "out.txt";
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
+
             for (Empregado empregado : empresa.getEmpregados()) {
                 bw.write(String.valueOf(empregado));
                 bw.newLine();
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
