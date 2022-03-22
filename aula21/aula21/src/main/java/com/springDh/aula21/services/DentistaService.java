@@ -25,4 +25,8 @@ public class DentistaService {
     public List<Dentista> buscarTodos(){
         return dentistaIDao.buscarTodos();
     }
+
+    public void excluir(Integer id){
+        dentistaIDao.excluir(id);
+    }
 }

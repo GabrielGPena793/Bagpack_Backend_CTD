@@ -1,7 +1,6 @@
 package com.springDh.aula21.services;
 
 import com.springDh.aula21.dao.IDao;
-import com.springDh.aula21.model.Dentista;
 import com.springDh.aula21.model.Endereco;
 
 import java.util.List;
@@ -25,5 +24,9 @@ public class EnderecoService {
 
     public List<Endereco> buscarTodos(){
         return enderecoIDao.buscarTodos();
+    }
+
+    public void excluir(Integer id){
+        enderecoIDao.excluir(id);
     }
 }

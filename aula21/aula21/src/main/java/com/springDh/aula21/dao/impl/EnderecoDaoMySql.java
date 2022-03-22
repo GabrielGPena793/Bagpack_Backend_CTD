@@ -62,6 +62,22 @@ public class EnderecoDaoMySql implements IDao<Endereco> {
     @Override
     public void excluir(Integer id) {
 
+        PreparedStatement st = null;
+        try {
+            st = conn.prepareStatement("""
+                    DELETE FROM endereco
+                    WHERE id = ?;
+                    """);
+
+            st.setInt(1 , id);
+            st.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            DB.closeStatement(st);
+        }
     }
 
     @Override
