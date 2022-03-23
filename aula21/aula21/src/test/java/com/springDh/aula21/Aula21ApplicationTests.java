@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 @SpringBootTest
 class Aula21ApplicationTests {
 
@@ -87,8 +89,24 @@ class Aula21ApplicationTests {
 		USUARIO_SERVICE.buscarTodos().forEach(System.out::println);
 	}
 
+	@Disabled
 	@Test
 	public void excluirPorId(){
 		USUARIO_SERVICE.excluir(4);
 	}
+
+	@Disabled
+	@Test
+	public void acharDentistaPorId(){
+		Optional<Dentista> dentista = dentistaService.buscar(16);
+		System.out.println(dentista);
+	}
+
+	@Test
+	public void atualizarDentista(){
+		Dentista dentista = new Dentista(16, "Carla", "Carla@gmail.com",12458, 1);
+
+		System.out.println(dentistaService.atualizar(dentista));
+	}
+
 }

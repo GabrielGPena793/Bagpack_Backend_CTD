@@ -29,4 +29,8 @@ public class DentistaService {
     public void excluir(Integer id){
         dentistaIDao.excluir(id);
     }
+
+    public Dentista atualizar(Dentista dentista){
+        return dentistaIDao.atualizar(dentista);
+    }
 }

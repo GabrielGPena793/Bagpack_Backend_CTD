@@ -54,6 +54,32 @@ public class DentistaDaoMySql implements IDao<Dentista> {
 
     @Override
     public Optional<Dentista> buscar(Integer id) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+
+        try {
+            st = conn.prepareStatement("""
+                    Select * from dentistas
+                    WHERE id = ?;
+                    """);
+
+            st.setInt(1, id);
+            rs = st.executeQuery();
+
+            if(rs.next()){
+                Dentista dentista = instantieteDentista(rs);
+                return Optional.of(dentista);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            DB.closeResultSet(rs);
+            DB.closeResultSet(rs);
+        }
+
+
         return Optional.empty();
     }
 
@@ -110,6 +136,37 @@ public class DentistaDaoMySql implements IDao<Dentista> {
 
     @Override
     public Dentista atualizar(Dentista dentista) {
+
+        PreparedStatement st = null;
+
+        try {
+            st = conn.prepareStatement("""
+                    UPDATE dentistas
+                    SET nome = ?, email = ?, numMatricula = ?,  atendeConvenio = ?
+                    WHERE id = ?;
+                    """);
+
+            st.setString(1, dentista.getNome());
+            st.setString(2, dentista.getEmail());
+            st.setInt(3, dentista.getNumMatricula());
+            st.setInt(4, dentista.getAtendeConvenio());
+            st.setInt(5, dentista.getId());
+
+            int rows = st.executeUpdate();
+
+            if (rows == 1){
+                return dentista;
+            }else {
+                System.out.println("Nenhum registro encontrado");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            DB.closeStatement(st);
+        }
+
         return null;
     }
 
