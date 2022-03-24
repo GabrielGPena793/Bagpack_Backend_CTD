@@ -67,8 +67,7 @@ public class DentistaDaoMySql implements IDao<Dentista> {
             rs = st.executeQuery();
 
             if(rs.next()){
-                Dentista dentista = instantieteDentista(rs);
-                return Optional.of(dentista);
+                return Optional.of(instantieteDentista(rs));
             }
 
         } catch (SQLException e) {
@@ -129,7 +128,6 @@ public class DentistaDaoMySql implements IDao<Dentista> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
 
         return null;
     }

@@ -29,4 +29,8 @@ public class EnderecoService {
     public void excluir(Integer id){
         enderecoIDao.excluir(id);
     }
+
+    public void atualizar(Endereco endereco){
+        enderecoIDao.atualizar(endereco);
+    }
 }

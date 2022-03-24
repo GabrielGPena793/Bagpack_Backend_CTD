@@ -56,6 +56,31 @@ public class EnderecoDaoMySql implements IDao<Endereco> {
 
     @Override
     public Optional<Endereco> buscar(Integer id) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+
+        try {
+            st = conn.prepareStatement("""
+                    Select * from endereco
+                    WHERE id = ?;
+                    """);
+
+            st.setInt(1, id);
+            rs = st.executeQuery();
+
+            if(rs.next()){
+                return Optional.of(instantieteEndereco(rs));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            DB.closeResultSet(rs);
+            DB.closeResultSet(rs);
+        }
+
+
         return Optional.empty();
     }
 
@@ -110,6 +135,37 @@ public class EnderecoDaoMySql implements IDao<Endereco> {
 
     @Override
     public Endereco atualizar(Endereco endereco) {
+        PreparedStatement st = null;
+
+        try {
+            st = conn.prepareStatement("""
+                    UPDATE endereco
+                    SET rua = ?, numero = ?, bairro = ?,  cidade = ?, estado = ?
+                    WHERE id = ?;
+                    """);
+
+            st.setString(1, endereco.getRua());
+            st.setString(2, endereco.getNumero());
+            st.setString(3, endereco.getBairro());
+            st.setString(4, endereco.getCidade());
+            st.setString(5, endereco.getEstado());
+            st.setInt(6, endereco.getId());
+
+            int rows = st.executeUpdate();
+
+            if (rows == 1){
+                return endereco;
+            }else {
+                System.out.println("Nenhum registro encontrado");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            DB.closeStatement(st);
+        }
+
         return null;
     }
 
@@ -117,6 +173,7 @@ public class EnderecoDaoMySql implements IDao<Endereco> {
         Endereco endereco = new Endereco();
         endereco.setId(rs.getInt("id"));
         endereco.setRua(rs.getString("rua"));
+        endereco.setNumero(rs.getString("numero"));
         endereco.setBairro(rs.getString("bairro"));
         endereco.setCidade(rs.getString("cidade"));
         endereco.setCidade(rs.getString("cidade"));

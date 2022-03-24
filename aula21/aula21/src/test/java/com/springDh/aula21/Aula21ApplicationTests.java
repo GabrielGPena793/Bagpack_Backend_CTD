@@ -102,11 +102,24 @@ class Aula21ApplicationTests {
 		System.out.println(dentista);
 	}
 
+	@Disabled
 	@Test
 	public void atualizarDentista(){
 		Dentista dentista = new Dentista(16, "Carla", "Carla@gmail.com",12458, 1);
 
 		System.out.println(dentistaService.atualizar(dentista));
+	}
+
+	@Test
+	public void buscarEnderecoPorId(){
+		System.out.println(enderecoService.buscar(2) );
+	}
+
+	@Test
+	public void atualizarEndereco(){
+		enderecoService.atualizar(new Endereco(1, "Sono", "000", "Sonolencia", "Sonolise", "Sonambuco"));
+
+		System.out.println(enderecoService.buscar(1) );
 	}
 
 }
