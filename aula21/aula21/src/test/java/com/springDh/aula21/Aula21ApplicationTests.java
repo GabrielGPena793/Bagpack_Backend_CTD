@@ -110,11 +110,13 @@ class Aula21ApplicationTests {
 		System.out.println(dentistaService.atualizar(dentista));
 	}
 
+	@Disabled
 	@Test
 	public void buscarEnderecoPorId(){
 		System.out.println(enderecoService.buscar(2) );
 	}
 
+	@Disabled
 	@Test
 	public void atualizarEndereco(){
 		enderecoService.atualizar(new Endereco(1, "Sono", "000", "Sonolencia", "Sonolise", "Sonambuco"));
@@ -122,4 +124,13 @@ class Aula21ApplicationTests {
 		System.out.println(enderecoService.buscar(1) );
 	}
 
+	@Test
+	public void buscarUsuarioPorId(){
+		System.out.println(USUARIO_SERVICE.buscar(7));
+	}
+
+	@Test
+	public void atualizarUsuario(){
+		System.out.println(USUARIO_SERVICE.atualizar(new Usuario(2, "Barbara", "barbara@hotmail.com", "barbara512", 5)));
+	}
 }
