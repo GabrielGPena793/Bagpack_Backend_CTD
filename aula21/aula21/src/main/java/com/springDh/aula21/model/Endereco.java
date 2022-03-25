@@ -1,6 +1,8 @@
 package com.springDh.aula21.model;
 
-public class Endereco {
+import java.io.Serializable;
+
+public class Endereco implements Serializable {
 
     private Integer id;
     private String rua;

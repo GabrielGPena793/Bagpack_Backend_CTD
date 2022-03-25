@@ -2,7 +2,6 @@ package com.springDh.aula21.dao.impl;
 
 import com.springDh.aula21.dao.IDao;
 import com.springDh.aula21.dao.config.DB;
-import com.springDh.aula21.model.Dentista;
 import com.springDh.aula21.model.Endereco;
 
 import java.sql.*;

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public class DentistaDaoMySql implements IDao<Dentista> {
 
-    private Connection conn;
+    private final Connection conn;
 
     public DentistaDaoMySql() {
         this.conn = DB.getConnection();
