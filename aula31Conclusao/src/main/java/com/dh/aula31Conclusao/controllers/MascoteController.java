@@ -33,4 +33,17 @@ public class MascoteController {
         return ResponseEntity.badRequest().body("Id Not found");
 
     }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Mascote> findById(@PathVariable Long id){
+
+        if (mascoteService.findById(id) != null){
+
+            Mascote mascote = mascoteService.findById(id);
+
+            return ResponseEntity.status(200).body(mascote);
+        }
+
+        return ResponseEntity.status(404).body(null);
+    }
 }
