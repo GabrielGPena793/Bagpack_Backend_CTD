@@ -14,14 +14,14 @@ public class Mascote {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
     private String nome;
     private Integer idade;
 
     public Mascote() {
     }
 
-    public Mascote(Integer id, String nome, Integer idade) {
+    public Mascote(Long id, String nome, Integer idade) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;

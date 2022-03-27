@@ -29,7 +29,8 @@ public class MascoteService implements IMascoteService<Mascote> {
     @Override
     public Mascote findById(Long id) {
         Optional<Mascote> mascote = mascoteRepository.findById(id);
-        return mascote.get();
+
+        return mascote.orElse(null);
     }
 
     @Override

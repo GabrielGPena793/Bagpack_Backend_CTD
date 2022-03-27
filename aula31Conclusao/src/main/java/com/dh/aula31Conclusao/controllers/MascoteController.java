@@ -4,10 +4,7 @@ import com.dh.aula31Conclusao.entitites.Mascote;
 import com.dh.aula31Conclusao.services.IMascoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/mascote")
@@ -22,5 +19,18 @@ public class MascoteController {
         mascoteService.insert(mascote);
 
         return ResponseEntity.ok().body("success");
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id){
+
+        if (mascoteService.findById(id) != null){
+            mascoteService.delete(id);
+            return ResponseEntity.status(200).body("Deleted success");
+
+        }
+
+        return ResponseEntity.badRequest().body("Id Not found");
+
     }
 }
