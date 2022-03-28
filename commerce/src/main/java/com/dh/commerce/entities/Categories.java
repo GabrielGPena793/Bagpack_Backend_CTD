@@ -33,5 +33,10 @@ public class Categories {
         this.name = name;
     }
 
-
+    @Override
+    public String toString() {
+        return "Categories{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

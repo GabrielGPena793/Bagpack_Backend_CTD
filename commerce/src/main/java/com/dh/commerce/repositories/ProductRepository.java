@@ -1,4 +1,7 @@
 package com.dh.commerce.repositories;
 
-public interface ProductRepository extends org.springframework.data.jpa.repository.JpaRepository<com.dh.commerce.entities.Product, java.lang.Long> {
+import com.dh.commerce.entities.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProductRepository extends JpaRepository<Product, Long> {
 }

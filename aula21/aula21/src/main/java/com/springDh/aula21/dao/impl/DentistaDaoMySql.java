@@ -35,7 +35,7 @@ public class DentistaDaoMySql implements IDao<Dentista> {
             st.setInt(4, dentista.getAtendeConvenio());
 
             st.executeUpdate();
-             rs = st.getGeneratedKeys();
+            rs = st.getGeneratedKeys();
             if (rs.next())
                 dentista.setId(rs.getInt(1));
 

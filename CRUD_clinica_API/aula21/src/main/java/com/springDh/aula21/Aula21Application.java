@@ -14,9 +14,5 @@ public class Aula21Application {
 		SpringApplication.run(Aula21Application.class, args);
 	}
 
-	@GetMapping
-	public String ola(){
-		return "Olá mundo";
-	}
 
 }
