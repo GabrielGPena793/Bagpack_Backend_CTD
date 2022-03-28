@@ -21,7 +21,7 @@ public class DentistaController {
     }
 
     @PostMapping
-    public ResponseEntity<Dentista> cadastrar(@RequestBody Dentista dentista){
+    public ResponseEntity<Dentista> salvar(@RequestBody Dentista dentista){
         return ResponseEntity.ok(dentistaService.salvar(dentista));
     }
 
