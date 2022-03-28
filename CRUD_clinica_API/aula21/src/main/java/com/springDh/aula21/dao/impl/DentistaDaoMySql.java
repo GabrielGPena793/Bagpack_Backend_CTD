@@ -173,6 +173,7 @@ public class DentistaDaoMySql implements IDao<Dentista> {
         dentista.setId(rs.getInt("id"));
         dentista.setNome(rs.getString("nome"));
         dentista.setEmail(rs.getString("email"));
+        dentista.setAtendeConvenio(rs.getInt("atendeConvenio"));
         dentista.setNumMatricula(rs.getInt("numMatricula"));
         return dentista;
 
