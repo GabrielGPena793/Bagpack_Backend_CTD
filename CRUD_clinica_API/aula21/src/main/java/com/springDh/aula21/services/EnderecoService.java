@@ -30,7 +30,7 @@ public class EnderecoService {
         enderecoIDao.excluir(id);
     }
 
-    public void atualizar(Endereco endereco){
-        enderecoIDao.atualizar(endereco);
+    public Endereco atualizar(Endereco endereco){
+        return enderecoIDao.atualizar(endereco);
     }
 }
