@@ -24,7 +24,7 @@ public class DentistaDaoMySql implements IDao<Dentista> {
 
         try {
             st = conn.prepareStatement("""
-                    INSERT INTO dentistas
+                    INSERT INTO dentista
                     (nome, email, numMatricula, atendeConvenio)
                     VALUES (?, ?, ?, ?)
                     """, Statement.RETURN_GENERATED_KEYS);

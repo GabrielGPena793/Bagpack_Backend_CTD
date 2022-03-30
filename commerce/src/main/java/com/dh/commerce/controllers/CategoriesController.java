@@ -17,7 +17,7 @@ public class CategoriesController {
 
     @PostMapping
     private ResponseEntity<String> post(@RequestBody Categories categories){
-        categoriesService.post(categories);
+         categoriesService.post(categories);
 
         return ResponseEntity.ok().body("Produto cadastrado");
 
@@ -29,4 +29,5 @@ public class CategoriesController {
         List<Categories> categories = categoriesService.findAll();
         return ResponseEntity.ok().body(categories);
     }
+
 }

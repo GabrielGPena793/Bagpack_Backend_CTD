@@ -3,7 +3,6 @@ package com.springDh.aula21.controllers;
 import com.springDh.aula21.dao.impl.EnderecoDaoMySql;
 import com.springDh.aula21.model.Endereco;
 import com.springDh.aula21.services.EnderecoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +18,6 @@ public class EnderecoController {
     public EnderecoController() {
         this.enderecoService = new EnderecoService(new EnderecoDaoMySql());
     }
-
 
     @PostMapping
     public ResponseEntity<Endereco> salvar(@RequestBody Endereco endereco){

@@ -1,5 +1,6 @@
 package com.dh.commerce.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,10 +15,11 @@ import java.util.List;
 public class Categories {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<Product> products = new ArrayList<>();
 
@@ -33,10 +35,4 @@ public class Categories {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Categories{" +
-                "name='" + name + '\'' +
-                '}';
-    }
 }

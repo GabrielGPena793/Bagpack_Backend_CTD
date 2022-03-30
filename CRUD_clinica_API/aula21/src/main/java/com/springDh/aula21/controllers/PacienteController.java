@@ -3,6 +3,7 @@ package com.springDh.aula21.controllers;
 import com.springDh.aula21.dao.impl.EnderecoDaoMySql;
 import com.springDh.aula21.dao.impl.PacienteDaoMySql;
 import com.springDh.aula21.model.Paciente;
+import com.springDh.aula21.services.EnderecoService;
 import com.springDh.aula21.services.PacienteService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ import java.util.List;
 public class PacienteController {
 
     private PacienteService pacienteService = new PacienteService(new PacienteDaoMySql(new EnderecoDaoMySql()));
+
+    private EnderecoService enderecoService = new EnderecoService( new EnderecoDaoMySql());
 
     @PostMapping
     public ResponseEntity<Paciente> salvar(@RequestBody Paciente paciente){
@@ -44,8 +47,11 @@ public class PacienteController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> excluirPorId(@PathVariable Integer id){
 
-        if (pacienteService.buscarPorId(id) != null){
+        Paciente paciente = pacienteService.buscarPorId(id);
+
+        if ( paciente != null){
             pacienteService.excluir(id);
+            enderecoService.excluir(paciente.getEndereco().getId());
             return ResponseEntity.status(200).body("deletatado com sucesso");
         }
 

@@ -1,5 +1,6 @@
 package com.dh.commerce.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,41 +13,34 @@ import javax.persistence.*;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String title;
     private Double price;
     private String description;
     private String image;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")
     private Categories category;
 
     public Product() {
     }
 
-    public Product(Double price, String description, String image, Categories category) {
-        this.price = price;
-        this.description = description;
-        this.image = image;
-        this.category = category;
-    }
-
-    public Product(Long id, Double price, String description, String image, Categories category) {
+    public Product(Long id, String title, Double price, String description, String image, Categories category) {
         this.id = id;
+        this.title = title;
         this.price = price;
         this.description = description;
         this.image = image;
         this.category = category;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
-                ", category=" + category +
-                '}';
+    public Product(String title, Double price, String description, String image, Categories category) {
+        this.title = title;
+        this.price = price;
+        this.description = description;
+        this.image = image;
+        this.category = category;
     }
 }

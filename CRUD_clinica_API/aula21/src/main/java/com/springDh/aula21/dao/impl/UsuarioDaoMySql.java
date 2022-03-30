@@ -25,7 +25,7 @@ public class UsuarioDaoMySql implements IDao<Usuario> {
         try {
             st = conn.prepareStatement("""
                     INSERT INTO usuario
-                    (nome, email, senha, acesso)
+                    (nome, email, senha, nivelAcesso)
                     VALUES (?, ?, ?, ?)
                     """, Statement.RETURN_GENERATED_KEYS);
 
