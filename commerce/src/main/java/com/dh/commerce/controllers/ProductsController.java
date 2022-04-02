@@ -48,12 +48,7 @@ public class ProductsController  {
 
     @GetMapping("/categories")
     public ResponseEntity<List<String>> findAllCategories(){
-
-        List<String> allCategories = categoriesService.findAll().stream()
-                .map(Categories::getName)
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok().body(allCategories);
+        return ResponseEntity.ok().body(categoriesService.categoriesName());
     }
 
     @PutMapping

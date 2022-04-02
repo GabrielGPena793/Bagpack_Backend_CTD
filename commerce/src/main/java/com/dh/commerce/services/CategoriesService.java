@@ -24,4 +24,8 @@ public class CategoriesService {
     public Categories findById(Long id){
        return  categoriesRepository.findById(id).orElse(null);
     }
+
+    public List<String> categoriesName(){
+        return categoriesRepository.categoriesNames();
+    }
 }
