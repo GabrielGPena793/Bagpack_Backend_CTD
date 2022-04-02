@@ -23,12 +23,7 @@ public class CategoriesController {
 
     }
 
-    @GetMapping
-    public ResponseEntity<List<Categories>> findAll(){
 
-        List<Categories> categories = categoriesService.findAll();
-        return ResponseEntity.ok().body(categories);
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Categories> findById(@PathVariable Long id){
