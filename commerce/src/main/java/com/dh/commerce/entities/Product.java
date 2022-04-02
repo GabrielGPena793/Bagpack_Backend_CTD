@@ -1,15 +1,17 @@
 package com.dh.commerce.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
 
 @Entity
+@Table
 public class Product {
 
     @Id
@@ -20,7 +22,7 @@ public class Product {
     private String description;
     private String image;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Categories category;
 
@@ -42,5 +44,17 @@ public class Product {
         this.description = description;
         this.image = image;
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", image='" + image + '\'' +
+                ", category=" + category +
+                '}';
     }
 }

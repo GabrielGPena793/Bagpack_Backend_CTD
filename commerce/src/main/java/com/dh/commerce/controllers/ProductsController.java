@@ -1,12 +1,11 @@
 package com.dh.commerce.controllers;
 
 import com.dh.commerce.dto.ProductDTO;
-import com.dh.commerce.entities.Categories;
 import com.dh.commerce.entities.Product;
 import com.dh.commerce.services.CategoriesService;
 import com.dh.commerce.services.ProductsService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/products")
-public class ProductsController {
+public class ProductsController  {
 
     @Autowired
     private ProductsService productsService;
@@ -24,26 +23,25 @@ public class ProductsController {
 
 
     @PostMapping
-    private ResponseEntity<String> post(@RequestBody ProductDTO productDTO){
+    private ResponseEntity<Product> post(@RequestBody ProductDTO productDTO){
 
-        Categories categories = categoriesService.findById(productDTO.getCategory());
-        Product product = new Product();
-
-        product.setTitle(productDTO.getTitle());
-        product.setPrice(productDTO.getPrice());
-        product.setDescription(productDTO.getDescription());
-        product.setImage(productDTO.getImage());
-        product.setCategory(categories);
-
-        productsService.post(product);
-
-        return ResponseEntity.ok().body("Produto cadastrado");
-
+        return ResponseEntity.ok(productsService.post(productDTO));
     }
 
     @GetMapping
     public ResponseEntity<List<Product>> findAll(){
 
-        return ResponseEntity.status(200).body(productsService.findAll());
+        return ResponseEntity.ok(productsService.findAll());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> findById(@PathVariable Long id){
+
+        if (productsService.findById(id) != null){
+            return ResponseEntity.ok(productsService.findById(id));
+        }
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
 }
