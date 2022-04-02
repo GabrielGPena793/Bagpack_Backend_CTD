@@ -52,6 +52,7 @@ public class ProductsController  {
         List<String> allCategories = categoriesService.findAll().stream()
                 .map(Categories::getName)
                 .collect(Collectors.toList());
+
         return ResponseEntity.ok().body(allCategories);
     }
 
@@ -60,6 +61,17 @@ public class ProductsController  {
 
         if (productsService.findById(productDTO.getId()) != null){
             return ResponseEntity.ok(productsService.put(productDTO));
+        }
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable Long id){
+
+        if (productsService.findById(id) != null){
+            productsService.delete(id);
+            return ResponseEntity.status(HttpStatus.OK).build();
         }
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
