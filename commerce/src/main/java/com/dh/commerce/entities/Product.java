@@ -1,17 +1,15 @@
 package com.dh.commerce.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Getter
 @Setter
 
 @Entity
-@Table
+@Table(name = "tb_producut")
 public class Product {
 
     @Id
@@ -23,7 +21,6 @@ public class Product {
     private String image;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
     private Categories category;
 
     public Product() {

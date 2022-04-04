@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -18,6 +20,9 @@ public class Time {
     private String nome;
     private String cidade;
     private String estado;
+
+//    @OneToMany(mappedBy = "time", fetch = FetchType.EAGER)
+//    private Set<Jogador> jogadorSet = new HashSet<>();
 
     public Time() {
     }

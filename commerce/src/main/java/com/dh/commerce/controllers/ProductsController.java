@@ -1,7 +1,6 @@
 package com.dh.commerce.controllers;
 
 import com.dh.commerce.dto.ProductDTO;
-import com.dh.commerce.entities.Categories;
 import com.dh.commerce.entities.Product;
 import com.dh.commerce.services.CategoriesService;
 import com.dh.commerce.services.ProductsService;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/products")
