@@ -11,7 +11,7 @@ public class Categories implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nome;
+    private String name;
 
     @ManyToMany(mappedBy = "categories")
     private Set<Products> products = new HashSet<>();
@@ -19,13 +19,13 @@ public class Categories implements Serializable {
     public Categories() {
     }
 
-    public Categories(Integer id, String nome) {
+    public Categories(Integer id, String name) {
         this.id = id;
-        this.nome = nome;
+        this.name = name;
     }
 
-    public Categories(String nome) {
-        this.nome = nome;
+    public Categories(String name) {
+        this.name = name;
     }
 
     public Integer getId() {
@@ -36,19 +36,19 @@ public class Categories implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "Categories{" +
                 "id=" + id +
-                ", nome='" + nome + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

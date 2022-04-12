@@ -1,29 +1,28 @@
 package br.com.dh.ctd.ecommerce.dto;
 
-
 import br.com.dh.ctd.ecommerce.model.Categories;
 
 public class CategoryDTO {
 
     private Integer id;
-    private String nome;
+    private String name;
 
     public CategoryDTO() {
     }
 
-    public CategoryDTO(Integer id, String nome) {
+    public CategoryDTO(Integer id, String name) {
         this.id = id;
-        this.nome = nome;
+        this.name = name;
     }
 
     public CategoryDTO(Categories categories) {
         id = categories.getId();
-        nome = categories.getNome();
+        name = categories.getName();
     }
 
 
-    public CategoryDTO(String nome) {
-        this.nome = nome;
+    public CategoryDTO(String name) {
+        this.name = name;
     }
 
     public Integer getId() {
@@ -34,11 +33,11 @@ public class CategoryDTO {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 }
