@@ -2,19 +2,37 @@ package br.com.dh.ctd.ecommerce.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Set;
 
 @Entity
 @Table
 public class Products implements Serializable {
+    private static final Long SERIAL_VERSION_UID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
+    @Column(columnDefinition = "TEXT")
     private String description;
     private Double price;
     private String image;
+
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE" )
+    private Instant created;
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE" )
+    private Instant updated;
+
+    @PrePersist
+    public void savingCategory(){
+        created = Instant.now();
+    }
+
+    @PreUpdate
+    public void updateCategory(){
+        updated = Instant.now();
+    }
 
     @ManyToMany
     @JoinTable(name = "product_category",
@@ -27,14 +45,6 @@ public class Products implements Serializable {
 
     public Products(Integer id, String title, String description, Double price, String image, Set<Categories> categories) {
         this.id = id;
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.image = image;
-        this.categories = categories;
-    }
-
-    public Products(String title, String description, Double price, String image, Set<Categories> categories) {
         this.title = title;
         this.description = description;
         this.price = price;
@@ -86,14 +96,11 @@ public class Products implements Serializable {
         return categories;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", image='" + image + '\'' +
-                '}';
+    public Instant getCreated() {
+        return created;
+    }
+
+    public Instant getUpdated() {
+        return updated;
     }
 }

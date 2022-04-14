@@ -2,7 +2,10 @@ package br.com.dh.ctd.ecommerce.dto;
 
 import br.com.dh.ctd.ecommerce.model.Categories;
 
-public class CategoryDTO {
+import java.io.Serializable;
+
+public class CategoryDTO  implements Serializable {
+    private static final Long SERIAL_VERSION_UID = 1L;
 
     private Integer id;
     private String name;

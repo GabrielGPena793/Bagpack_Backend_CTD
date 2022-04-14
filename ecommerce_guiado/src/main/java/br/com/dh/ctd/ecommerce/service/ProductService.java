@@ -9,6 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 public class ProductService {
 
@@ -22,6 +24,12 @@ public class ProductService {
         Page<ProductDTO> page = result.map(ProductDTO::new);
         return page;
 
+    }
+
+    @Transactional(readOnly = true)
+    public ProductDTO findById(Integer id){
+        Optional<Products> products = productRepository.findById(id);
+        return new ProductDTO(products.get());
     }
 
 }

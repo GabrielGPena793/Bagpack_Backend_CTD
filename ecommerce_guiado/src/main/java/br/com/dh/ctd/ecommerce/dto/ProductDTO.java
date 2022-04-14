@@ -1,13 +1,16 @@
 package br.com.dh.ctd.ecommerce.dto;
 
+import br.com.dh.ctd.ecommerce.model.Categories;
 import br.com.dh.ctd.ecommerce.model.Products;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ProductDTO implements Serializable {
+    private static final Long SERIAL_VERSION_UID = 1L;
 
     private Integer id;
     private String title;
@@ -20,13 +23,12 @@ public class ProductDTO implements Serializable {
     public ProductDTO() {
     }
 
-    public ProductDTO(Integer id, String title, String description, Double price, String image, List<CategoryDTO> categories) {
+    public ProductDTO(Integer id, String title, String description, Double price, String image) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
         this.image = image;
-        this.categories = categories;
     }
 
     public ProductDTO(Products products) {
@@ -39,6 +41,11 @@ public class ProductDTO implements Serializable {
                 .map(CategoryDTO::new)
                 .collect(Collectors.toList());
 
+    }
+
+    public ProductDTO(Products products, Set<Categories> categoriesSet){
+        this(products);
+        categoriesSet.forEach(categorie -> this.categories.add(new CategoryDTO(categorie)));
     }
 
     public Integer getId() {
@@ -85,7 +92,4 @@ public class ProductDTO implements Serializable {
         return categories;
     }
 
-    public void setCategories(List<CategoryDTO> categories) {
-        this.categories = categories;
-    }
 }
